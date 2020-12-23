@@ -57,12 +57,10 @@ int main()
 		close(s);
 		exit(0);
 	}
-	printf("%d\n", buff[0]);
-	puts(buff);
-	printf("%lu\n", strlen(buff));
+	printf("%lu\n", sizeof(buff));
 	char arr[50];
 	int ch = 1;
-	while(ch != 5){
+	while(ch != 4){
 		recb = recv(ns, arr, sizeof(arr), 0);
 		if(recb == -1){
 			printf("Receive error inside while!\n");
@@ -101,6 +99,7 @@ int main()
 					}
 					break;
 			case 3: break;
+			case 4: break;
 			default: printf("Wrong Command\n");
 		}
 	}

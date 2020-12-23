@@ -28,22 +28,18 @@ int main(){
 		exit(0);
 	}
 	printf("Socket Connected\n");
-	// int n;
-	// printf("Enter integers\n");
-	// scanf("%d", &n);
-	// printf("Enter integers\n");
-	// int arr[50];
-	// int i;
-	// for( i = 0; i < n; i++){
-	// 	scanf("%d", &arr[i]);
-	// }
-	// for(i = 0; i < n; i++){
-	// 	buff[i] = arr[i];
-	// }
-	// buff[i] = '\0';
-
-	printf("Enter a String\n");
-	gets(buff);
+	int n;
+	printf("Enter integers\n");
+	scanf("%d", &n);
+	printf("Enter integers\n");
+	int arr[50];
+	int i;
+	for( i = 0; i < n; i++){
+		scanf("%d", &arr[i]);
+	}
+	for(i = 0; i < n; i++){
+		buff[i] = arr[i];
+	}
 	sendbytes = send(sockfd, buff, sizeof(buff), 0);
 	if(sendbytes == -1){
 		printf("Send Error\n");
@@ -53,7 +49,6 @@ int main(){
 
 	printf("Array sent successfully!\n");
 
-	Input Menu:
 	int input = 0;
 	while(input!=4)
 	{
@@ -87,6 +82,14 @@ int main(){
 			
 			case 3:
 			break;
+			case 4: sendbytes = send(sockfd, buff, sizeof(buff), 0);
+			if(sendbytes == -1){
+				printf("send error in case 2\n");
+				close(sockfd);
+				exit(0);
+			}
+			break;
+			default: printf("Wrong Command\n");
 		} 
 	}
 
